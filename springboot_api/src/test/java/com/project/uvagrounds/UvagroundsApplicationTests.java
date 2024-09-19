@@ -1,10 +1,10 @@
-package project.whatsongrounds;
+package com.project.uvagrounds;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WhatsongroundsApplicationTests {
+class UvagroundsApplicationTests {
 
 	@Test
 	void contextLoads() {
