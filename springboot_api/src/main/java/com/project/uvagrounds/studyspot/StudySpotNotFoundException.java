@@ -1,4 +1,4 @@
-package com.project.uvagrounds.controllers;
+package com.project.uvagrounds.studyspot;
 
 class StudySpotNotFoundException extends RuntimeException {
 

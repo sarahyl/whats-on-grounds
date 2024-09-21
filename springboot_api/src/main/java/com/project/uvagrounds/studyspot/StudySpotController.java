@@ -1,4 +1,4 @@
-package com.project.uvagrounds.controllers;
+package com.project.uvagrounds.studyspot;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
-
-import com.project.uvagrounds.models.StudySpot;
-import com.project.uvagrounds.models.StudySpotRepository;
 
 @RestController
 class StudySpotController {
@@ -32,7 +30,6 @@ class StudySpotController {
 
     @GetMapping("/studyspots")
     CollectionModel<EntityModel<StudySpot>> all() {
-
       List<EntityModel<StudySpot>> studyspots = repository.findAll().stream()
           .map(assembler::toModel)
           .collect(Collectors.toList());
@@ -63,7 +60,13 @@ class StudySpotController {
       StudySpot updatedStudySpot = repository.findById(id) //
         .map(studyspot -> {
           studyspot.setName(newStudySpot.getName());
+          studyspot.setDescription(newStudySpot.getDescription());
+          studyspot.setRating(newStudySpot.getRating());
+          studyspot.setCasualRating(newStudySpot.getCasualRating());
           studyspot.setAddress(newStudySpot.getAddress());
+          studyspot.setCity(newStudySpot.getCity());
+          studyspot.setBuilding(newStudySpot.getBuilding());
+          studyspot.setLatLong(newStudySpot.getLatLong());
           return repository.save(studyspot);
         }) //
         .orElseGet(() -> {
@@ -79,9 +82,7 @@ class StudySpotController {
   
     @DeleteMapping("/studyspots/{id}")
     ResponseEntity<?> deleteStudySpot(@PathVariable Long id) {
-
       repository.deleteById(id);
-    
       return ResponseEntity.noContent().build();
     }
 
