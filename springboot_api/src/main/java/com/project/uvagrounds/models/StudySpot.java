@@ -11,13 +11,26 @@ public class StudySpot {
     private @Id
     @GeneratedValue Long id;
     private String name;
+    private String description;
+    private Float rating;
+    private Float casualRating;
     private String address;
+    private String city;
+    private String building;
+    private String latLong;
+
 
     public StudySpot() {}
 
-    public StudySpot(String name, String address){
+    public StudySpot(String name, String description, Float rating, Float casualRating, String address, String city, String building, String latLong){
         this.name = name;
+        this.description = description;
+        this.rating = rating;
+        this.casualRating = casualRating;
         this.address = address;
+        this.city = city;
+        this.building = building;
+        this.latLong = latLong;
     }
 
     public Long getId() {
@@ -28,8 +41,32 @@ public class StudySpot {
         return this.name;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
+    public Float getRating() {
+        return this.rating;
+    }
+
+    public Float getCasualRating() {
+        return this.casualRating;
+    }
+
     public String getAddress() {
         return this.address;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public String getBuilding() {
+        return this.building;
+    }
+
+    public String getLatLong() {
+        return this.latLong;
     }
 
     public void setId(Long id) {
@@ -40,8 +77,32 @@ public class StudySpot {
         this.name = name;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
+    public void setCasualRating(Float casualRating) {
+        this.casualRating = casualRating;
+    }
+
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setBuilding(String building) {
+        this.building = building;
+    }
+
+    public void setLatLong(String latLong) {
+        this.latLong = latLong;
     }
 
     @Override

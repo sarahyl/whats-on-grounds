@@ -32,7 +32,6 @@ class StudySpotController {
 
     @GetMapping("/studyspots")
     CollectionModel<EntityModel<StudySpot>> all() {
-
       List<EntityModel<StudySpot>> studyspots = repository.findAll().stream()
           .map(assembler::toModel)
           .collect(Collectors.toList());
@@ -63,7 +62,13 @@ class StudySpotController {
       StudySpot updatedStudySpot = repository.findById(id) //
         .map(studyspot -> {
           studyspot.setName(newStudySpot.getName());
+          studyspot.setDescription(newStudySpot.getDescription());
+          studyspot.setRating(newStudySpot.getRating());
+          studyspot.setCasualRating(newStudySpot.getCasualRating());
           studyspot.setAddress(newStudySpot.getAddress());
+          studyspot.setCity(newStudySpot.getCity());
+          studyspot.setBuilding(newStudySpot.getBuilding());
+          studyspot.setLatLong(newStudySpot.getLatLong());
           return repository.save(studyspot);
         }) //
         .orElseGet(() -> {
@@ -79,9 +84,7 @@ class StudySpotController {
   
     @DeleteMapping("/studyspots/{id}")
     ResponseEntity<?> deleteStudySpot(@PathVariable Long id) {
-
       repository.deleteById(id);
-    
       return ResponseEntity.noContent().build();
     }
 

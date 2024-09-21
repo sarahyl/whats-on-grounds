@@ -18,8 +18,8 @@ class LoadDatabase {
   CommandLineRunner initDatabase(StudySpotRepository repository) {
 
     return args -> {
-      log.info("Preloading " + repository.save(new StudySpot("Shannon Library", "160 McCormick Rd")));
-      log.info("Preloading " + repository.save(new StudySpot("Clemons Library", "164 McCormick Rd")));
+      log.info("Preloading " + repository.save(new StudySpot("Shannon Library", "Shannon Library description", null, null, "160 McCormick Rd", "Charlottesville", "Shannon Library", "38.0365° N, 78.5054° W")));
+      log.info("Preloading " + repository.save(new StudySpot("Clemons Library", "Clem description", null, null, "164 McCormick Rd", "Charlottesville", "Clemson Library", "38.0364° N, 78.5061° W")));
     };
   }
 }
