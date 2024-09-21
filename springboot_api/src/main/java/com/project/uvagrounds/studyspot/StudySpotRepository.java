@@ -1,4 +1,4 @@
-package com.project.uvagrounds.models;
+package com.project.uvagrounds.studyspot;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

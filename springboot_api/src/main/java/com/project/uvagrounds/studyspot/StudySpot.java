@@ -1,4 +1,4 @@
-package com.project.uvagrounds.models;
+package com.project.uvagrounds.studyspot;
 
 import java.util.Objects;
 
